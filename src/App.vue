@@ -10,7 +10,7 @@
         {{ number }}
       </option>
     </select>
-    <button @click="fetchNewActivity">Fetch New Activity</button>
+    <button class="button" @click="fetchNewActivity">Fetch New Activity</button>
   </div>
 </template>
 
@@ -72,5 +72,14 @@ export default {
     position: relative;
     outline: none;
     padding: 5px;
+  }
+  .button {
+    margin-top: 20px;
+    border: none;
+    padding: 5px 10px;
+    color: black;
+    border-radius: 10px;
+    background-color: coral;
+    cursor: pointer;
   }
 </style>

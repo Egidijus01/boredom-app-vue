@@ -1,6 +1,5 @@
-// store/modules/activities.js
 import axios from 'axios';
-
+const url = "https://www.boredapi.com/api/activity/"
 const state = {
   activity: null,
   error: null,
@@ -18,7 +17,15 @@ const mutations = {
 const actions = {
   async fetchActivity({ commit }) {
     try {
-      const response = await axios.get('https://www.boredapi.com/api/activity/');
+      const response = await axios.get(url);
+      commit('SET_ACTIVITY', response.data);
+    } catch (error) {
+      commit('SET_ERROR', error);
+    }
+  },
+  async fetchActivityParticipants({ commit }, count) {
+    try {
+      const response = await axios.get(url.concat("?participants=".concat(count)));
       commit('SET_ACTIVITY', response.data);
     } catch (error) {
       commit('SET_ERROR', error);
